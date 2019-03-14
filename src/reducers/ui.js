@@ -81,10 +81,11 @@ export default (state = initialState, action) => {
       }
 
       const oppositeSide = side === 'source' ? 'target' : 'source';
+
       return {
         ...state,
-        [`${side}Amount`]: round(amount),
-        [`${oppositeSide}Amount`]: round(amount * price ),
+        [`${side}Amount`]: amount ? round(amount) : amount,
+        [`${oppositeSide}Amount`]: amount ? round(amount * price) : amount,
       }
     }
 
